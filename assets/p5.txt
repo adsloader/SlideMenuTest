@@ -1,0 +1,21 @@
+package com.campandroid.sildemenutest;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import android.content.Context;
+
+// asset에서 파일을 읽는다.
+public class PageReader {
+    static public  String readPage(Context ctx, String sPageFile) throws IOException {
+	    
+    	InputStream is = ctx.getAssets().open(sPageFile);
+		int size = is.available();
+		byte[] buffer = new byte[size];
+		is.read(buffer);
+		is.close();
+		String sText = new String(buffer);
+		
+		return sText;
+	}
+}
