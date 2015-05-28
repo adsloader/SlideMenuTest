@@ -7,6 +7,8 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -118,6 +120,16 @@ public class MainActivity extends Activity {
 		ImageView imgBanner;
 		
 		int nSelection;
+		
+		// 원본 URL의 정보를 배열로 가지고 있다.
+		String URL_LIST[] = {
+				"https://mirror.enha.kr/wiki/%EA%B3%A0%EC%96%91%EC%9D%B4", 
+				"https://mirror.enha.kr/wiki/%EA%B3%A0%EC%96%91%EC%9D%B4", 
+				"https://mirror.enha.kr/wiki/%EC%B1%85",
+				"https://mirror.enha.kr/wiki/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C",
+				"https://mirror.enha.kr/wiki/%EA%B3%BC%EC%9D%BC",
+				"http://blog.naver.com/adsloader"
+				};
 
 		/**
 		 * The fragment argument representing the section number for this
@@ -165,9 +177,12 @@ public class MainActivity extends Activity {
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					String sMessage = ">" + nSelection + "를 공유합니다."; 
+					String sMessage = ">" + nSelection + "의 원본 주소입니다."; 
 					Context ctx = getActivity().getApplicationContext();
 					Toast.makeText(ctx, sMessage, Toast.LENGTH_LONG).show();
+					
+					// 선택된 페이지의 URL로 이동한다.
+					BrowsedUrl(URL_LIST[nSelection]);
 					
 				}
 			});
@@ -179,12 +194,21 @@ public class MainActivity extends Activity {
 				imgBanner.setVisibility(View.GONE);
 			} else {
 				int [] RES_ID = 
-					{R.drawable.cat,   R.drawable.cat,   R.drawable.books, R.drawable.cat, 
+					{R.drawable.cat,   R.drawable.cat,   R.drawable.books, R.drawable.androboy, 
 					 R.drawable.fruit, R.drawable.books};
 				imgBanner.setImageResource(RES_ID[nSelection]);
 			}
 			
 			return rootView;
+		}
+		
+		// URL로 이동한다.
+		void BrowsedUrl(String sUrl){
+			Intent i = new Intent(Intent.ACTION_VIEW); 
+			Uri u = Uri.parse(sUrl);
+			i.setData(u);
+
+			startActivity(i);
 		}
 		
 		

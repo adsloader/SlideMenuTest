@@ -1,21 +1,20 @@
-package com.campandroid.sildemenutest;
+이 소스를 가지고 EBOOK 형태를 만들 수 있지 않을까요?
+단순하게 그림과 글을 보여주는 것도 만들 수 있지만
+특정 페이지로 이동하면 동영상을 보여주거나 
+애니메이션을 보여주는 것을 만들어주면 멀티미디어 EBOOK이 될 수도 있을 듯합니다.
+기술적으로 그다지 어려울 것 같지는 않은데...
 
-import java.io.IOException;
-import java.io.InputStream;
+나중에 안드로이드 프로그래밍이 익숙해지면...
+그런 것들을 추가로 구현해보시는 것도 좋을 듯합니다.
 
-import android.content.Context;
+저같은 경우는
+1장이 끝났을 경우, 독자들이 저자에게 메일이나 카톡을 보내서 의견을 줄 수있는
+battle형 talking book을 만들고 싶습니다.
+아침드라마(미국용어로는 soap opera, 우리나라 로컬화된 용어로는 = 막장드라마)를
+보게되면 시청자들의 성화로 내용이 바뀌는 경우도 있지않나요?
+그런 것을 책으로 실시간 battle 앱을 만들고 싶습니다.
 
-// asset에서 파일을 읽는다.
-public class PageReader {
-    static public  String readPage(Context ctx, String sPageFile) throws IOException {
-	    
-    	InputStream is = ctx.getAssets().open(sPageFile);
-		int size = is.available();
-		byte[] buffer = new byte[size];
-		is.read(buffer);
-		is.close();
-		String sText = new String(buffer);
-		
-		return sText;
-	}
-}
+....
+
+그런데 시간이 없네요
+여러분들이 만들어주세요

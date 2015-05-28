@@ -20,7 +20,8 @@
             android:background="#333333"
             android:gravity="center"
             android:text="TextView"
-            android:textColor="#eeeeee" />
+            android:textColor="#eeeeee"
+            android:textSize="26sp" />
         
         <ImageView
             android:id="@+id/imgBanner"
@@ -35,8 +36,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_marginTop="5dp"
-            android:text="본문내용입니다."
-            android:textSize="23sp" />
+            android:text="본문내용입니다." />
 
     </LinearLayout>
 
